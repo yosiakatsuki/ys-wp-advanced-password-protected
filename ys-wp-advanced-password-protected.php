@@ -6,7 +6,7 @@
  * Author URI:      https://yosiakatsuki.net
  * Text Domain:     ys-wp-advanced-password-protected
  * Domain Path:     /languages
- * Version:         0.0.1
+ * Version:         1.0.0
  *
  * @package         YS_WP_Advanced_Password_Protected
  */
