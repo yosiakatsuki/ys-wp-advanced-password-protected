@@ -16,18 +16,20 @@
  * 「保護中」の削除
  *
  * @param string $format Format.
+ *
  * @return string
  */
 function YSWPAPP_protected_title_format( $format ) {
 	return '%s';
 }
+
 add_filter( 'protected_title_format', 'YSWPAPP_protected_title_format' );
 
 
-
 function YSWPAPP_the_password_form( $output ) {
+	global $post;
 	$post  = get_post( $post );
-	$label = 'pwbox-' . ( empty($post->ID) ? rand() : $post->ID );
+	$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
 	/**
 	 * more部分
 	 */
@@ -42,7 +44,7 @@ function YSWPAPP_the_password_form( $output ) {
 	 */
 	$content_arr = get_extended( $post->post_content );
 	if ( ! empty( $content_arr['extended'] ) ) {
-		$more    = apply_filters( 'the_content', $content_arr['main'] ) ;
+		$more    = $content_arr['main'];
 		$message = '';
 	}
 	/**
@@ -52,4 +54,5 @@ function YSWPAPP_the_password_form( $output ) {
 
 	return $more . $output;
 }
+
 add_filter( 'the_password_form', 'YSWPAPP_the_password_form' );
